@@ -12,7 +12,8 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-  axios.defaults.baseURL = "https://quiz-kappa-eosin.vercel.app/api";
+  // axios.defaults.baseURL = "https://quiz-kappa-eosin.vercel.app/api";
+  axios.defaults.baseURL = "http://localhost:3000/api";
 
   return (
     <>

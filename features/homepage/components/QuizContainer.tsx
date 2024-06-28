@@ -54,7 +54,7 @@ const QuizContainer = ({ data }: IProps) => {
     <div className="quiz__container flex flex-col relative items-center h-[500px] justify-center rounded-lg bg-[#343964] py-10 w-full">
       <p className="text-sm text-[#8B8EAB] font-bold">Country Quiz</p>
 
-      <div className="flex gap-5 font-semibold my-6">
+      <div className="grid grid-cols-5 md:flex gap-5 font-semibold my-6">
         {data.map((_, index) => (
           <p
             className={classNames(
@@ -71,11 +71,11 @@ const QuizContainer = ({ data }: IProps) => {
         ))}
       </div>
 
-      <p className="text-center max-w-[450px] text-2xl font-semibold mt-2 mb-8">
+      <p className="text-center max-w-[450px] text-2xl font-semibold mt-2 mb-8 px-5">
         {currentQuestion.question}
       </p>
 
-      <div className="grid grid-cols-2 max-w-[500px] w-full gap-5">
+      <div className="grid grid-cols-2 max-w-[500px] w-full gap-5 px-5">
         {currentQuestion.options.map((option) => (
           <button
             key={option.name}
@@ -87,7 +87,8 @@ const QuizContainer = ({ data }: IProps) => {
                 "bg-[#393f6e] flex justify-center items-center gap-2":
                   chosenAnswer === option && option.isCorrect,
                 "bg-gradient-to-r from-[#E65895] to-[#BC6BE8] text-white flex justify-center items-center gap-2":
-                  chosenAnswer === option && !option.isCorrect,
+                  chosenAnswer === option &&
+                  (!option.isCorrect || option.isCorrect),
                 "bg-[#393F6E] flex justify-center items-center gap-2":
                   chosenAnswer !== option &&
                   option.isCorrect &&
